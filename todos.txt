@@ -1,1 +1,3 @@
-do math rev
+read
+ locke lamoraread
+do maths
