@@ -15,7 +15,7 @@ exit_but = sg.Button('exit')
 window = sg.Window("my todo-list",
                    layout=[[label],
                            [input_text, add_butt],
-                           [list_box, edit_but,complete_but],
+                           [list_box, edit_but, complete_but],
                            [exit_but]],
                    font=('Helvetica', 12))
 while True:
@@ -31,7 +31,7 @@ while True:
             window['todos'].update(values=todos)
         case 'edit':
             todo_to_edit = values['todos'][0]
-            new_todo = values['todo']
+            new_todo = values['todo'] + '\n'
             todos = fn.get_todo()
             index = todos.index(todo_to_edit)
             todos[index] = new_todo
@@ -45,6 +45,7 @@ while True:
             todos.pop(index)
             fn.write_todo(todos)
             window['todos'].update(values=todos)
+            window['todo'].update(value='')
         case 'exit':
             break
         case sg.WIN_CLOSED:
