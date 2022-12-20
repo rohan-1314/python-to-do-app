@@ -1,1 +1,2 @@
-do ch5
+write code
+read a book
