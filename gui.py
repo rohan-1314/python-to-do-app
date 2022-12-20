@@ -1,7 +1,10 @@
 import functions as fn
 import PySimpleGUI as sg
 import time
-
+import os
+if not os.path.exists('todos.txt'):
+    with open('todos.txt', 'w') as file:
+        pass
 clock = sg.Text('', key='clock')
 label = sg.Text("Enter a TODO")
 input_text = sg.InputText(tooltip="Enter todo",
@@ -22,6 +25,7 @@ window = sg.Window("my todo-list",
                            [list_box, edit_but, complete_but],
                            [exit_but]],
                    font=('Helvetica', 12))
+
 while True:
     event, values = window.read(timeout=200)
     window['clock'].update(value=time.strftime('%b %d, %Y %H:%M:%S'))
